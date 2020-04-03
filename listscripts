@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+const fs = require('fs')
+try{
+  const scripts = JSON.parse(fs.readFileSync('package.json', 'utf8')).scripts
+  Object.keys(scripts).forEach((key) => {
+    console.log(` ${key}: ${scripts[key]}`)
+  });
+
+}catch(e){
+  console.log('no package.json found')
+}
+
